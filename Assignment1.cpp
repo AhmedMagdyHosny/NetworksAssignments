@@ -5,6 +5,42 @@ using namespace std;
 
 
 
+bool isFirstBitOne(string x) {
+	if (x[0] == '1') {
+		return 1;
+	}
+	else { return 0; }
+}
+
+
+bool isZeros(string x) {
+
+	for (int i = 0; i < x.length(); i++) {
+		if(x[i] == '1'){
+			return false;
+		}
+	}
+	return true;
+}
+
+
+
+string XOR(string x, string y) {
+	string result = "";
+	int j = x.length();
+	for (int i = 0; i <j; i++) {
+		if (x[i] == y[i]) {
+			result += "0";
+		}
+		else {
+			result += "1";
+		}
+	}
+	return result;
+}
+
+
+
 string CRC(string message, string generator, string & remain) {
 	int  glength = generator.length();
 	int mlength = message.length() + glength - 1;
