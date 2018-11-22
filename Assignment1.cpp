@@ -136,6 +136,7 @@ int main() {
 		transmittedMessage = CRC(message, generator, remain);
 		cout << transmittedMessage << endl;
 		cout << "verifying output is " << verifier(transmittedMessage, generator, remain) << endl;
+		cout << endl << "-----------------------------" << endl << "NEW ATTEMPT" << endl << endl;
 	}
 	
 	return 0;
