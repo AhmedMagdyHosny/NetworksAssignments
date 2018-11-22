@@ -99,3 +99,44 @@ string verifier(string message, string generator,string & remain) {
 		return "Error";
 	}
 }
+
+
+
+void alter(string & message, int n) {
+	if (message[n - 1] == '1') {
+		message[n - 1] = '0';
+	}
+	else {
+		message[n - 1] = '1';
+	}
+}
+
+
+
+int main() {
+
+	string message, generator;
+	string remain;
+	remain = "asdf";
+	while (1) {
+		cout << "Enter the Message then press Enter" << endl;
+		cin >> message;
+		cout << "Enter the polynomial" << endl;
+		cin >> generator;
+		cout << "The transmitted message is :   ";
+		string transmittedMessage = CRC(message, generator, remain);
+		cout << transmittedMessage << endl;
+		cout << "verifying output is " << verifier(transmittedMessage, generator, remain) << endl;
+		cout << "Enter the index of the altered bit in the original message" << endl;
+		int n;
+		cin >> n;
+		alter(message, n);
+		cout << "the new message is  " << message << endl;
+		cout << "The transmitted message is :   ";
+		transmittedMessage = CRC(message, generator, remain);
+		cout << transmittedMessage << endl;
+		cout << "verifying output is " << verifier(transmittedMessage, generator, remain) << endl;
+	}
+	
+	return 0;
+}
